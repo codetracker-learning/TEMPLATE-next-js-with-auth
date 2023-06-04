@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import TutorCard from '../components/TutorCard';
-import { getAllTutors } from '../api/tutorData';
-import { useAuth } from '../utils/context/authContext';
+import TutorCard from '../../components/TutorCard';
+import { getAllTutors } from '../../api/tutorData';
+import { useAuth } from '../../utils/context/authContext';
 
 export default function ViewTutors() {
   const [tutors, setTutors] = useState([]);
