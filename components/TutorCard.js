@@ -1,27 +1,23 @@
 import PropTypes from 'prop-types';
-import { Button, Image } from 'react-bootstrap';
+// import useState from 'react';
+import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 // import Link from 'next/link';
 
 export default function TutorCard({ tutorObj }) {
   return (
-    <>
-      <Card style={{
-        height: '400px',
-        width: '18rem',
-        margin: '10px',
-        cursor: 'pointer',
-      }}
-      >
-        <Image variant="top" src={tutorObj?.image} alt={tutorObj?.tutor_name} />
-        <div>
-          <h4 className="card-text bold">{tutorObj?.tutor_name}</h4>
-          <p>Subjects: {tutorObj?.subject}</p>
-          <p className="card-text-bold">${tutorObj?.rate} per hour</p>
-          <Button variant="success">Learn more about {tutorObj?.tutor_name}</Button>
-        </div>
+    <div className="horizontal-card">
+      <Card style={{ width: '18rem' }}>
+        <Card.Img src={tutorObj.image} />
+        <Card.Body>
+          <Card.Title>{tutorObj.tutor_name}</Card.Title>
+          <p>{tutorObj.bio}</p>
+          <p>${tutorObj.rate} per hour</p>
+          <Button variant="info">View Profile</Button>
+        </Card.Body>
       </Card>
-    </>
+    </div>
+
   );
 }
 
@@ -31,5 +27,6 @@ TutorCard.propTypes = {
     tutor_name: PropTypes.string,
     subject: PropTypes.string,
     rate: PropTypes.number,
+    bio: PropTypes.string,
   }).isRequired,
 };
