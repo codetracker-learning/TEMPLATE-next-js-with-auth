@@ -8,7 +8,7 @@ import {
 
 export default function NavBar() {
   return (
-    <Navbar bg="primary" variant="dark">
+    <Navbar style={{ background: '#071fdb' }} variant="dark">
       <Container>
         <Navbar.Brand href="/">theTechAcademy</Navbar.Brand>
         <Nav className="me-auto">
@@ -16,7 +16,7 @@ export default function NavBar() {
           <Nav.Link href="/tutors/viewTutors">View Tutors</Nav.Link>
           <Nav.Link href="/tutors/mytutors">My Tutors</Nav.Link>
           <Nav.Link href="/tutors/new">Manage Tutors</Nav.Link>
-          <Nav.Link href="/mybookings">My Bookings</Nav.Link>
+          <Nav.Link href="/bookings/new">My Bookings</Nav.Link>
         </Nav>
       </Container>
     </Navbar>
