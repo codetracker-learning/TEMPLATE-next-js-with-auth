@@ -135,7 +135,7 @@ export default function AddTutorForm({ obj }) {
           as="textarea"
           placeholder="Bio"
           style={{ height: '100px' }}
-          name="description"
+          name="bio"
           value={formInput.bio}
           onChange={handleChange}
           required

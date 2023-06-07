@@ -16,7 +16,7 @@ export default function NavBar() {
           <Nav.Link href="/tutors/viewTutors">View Tutors</Nav.Link>
           <Nav.Link href="/tutors/mytutors">My Tutors</Nav.Link>
           <Nav.Link href="/tutors/new">Manage Tutors</Nav.Link>
-          <Nav.Link href="/bookings/new">My Bookings</Nav.Link>
+          <Nav.Link href="/bookings/mybookings">My Bookings</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

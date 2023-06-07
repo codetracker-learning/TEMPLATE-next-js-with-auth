@@ -9,7 +9,7 @@ import { deleteBooking, getAllBookings } from '../api/tutorbookingdata';
 function BookingCard({ bookingObj, onUpdate }) {
   const deleteThisBooking = () => {
     if (window.confirm('Delete booking with $(bookingOjb.tutor_name)?')) {
-      deleteBooking(bookingObj.firebaseKey).then(() => onUpdate(getAllBookings));
+      deleteBooking(bookingObj?.firebaseKey).then(() => onUpdate(getAllBookings));
     }
   };
 
@@ -25,9 +25,9 @@ function BookingCard({ bookingObj, onUpdate }) {
               </Col>
               <Col>
                 <h3>Date and Time</h3>
-                <p>You have an upcoming session with {bookingObj.tutor_name}. Please note that {bookingObj.tutor_name} requires 8hrs notice to cancel at no charge.</p>
-                <h5>${bookingObj.rate} for one hour.</h5>
-                <h5>{bookingObj.subject}</h5>
+                <p>You have an upcoming session with {bookingObj?.tutor_name}. Please note that {bookingObj?.tutor_name} requires 8hrs notice to cancel at no charge.</p>
+                <h5>${bookingObj?.rate} for one hour.</h5>
+                <h5>{bookingObj?.subject}</h5>
                 <Button variant="info" className="m-2" style={{ color: 'white' }}>Edit Booking</Button>
                 <Button variant="secondary" onClick={deleteThisBooking}>Cancel Booking</Button>
               </Col>

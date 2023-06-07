@@ -2,7 +2,7 @@ import { clientCredentials } from '../utils/client';
 
 const endpoint = clientCredentials.databaseURL;
 
-// GET ALL TUTORS
+// GET ALL BOOKINGS
 const getAllBookings = () => new Promise((resolve, reject) => {
   fetch(`${endpoint}/bookings.json`, {
     method: 'GET',
