@@ -16,9 +16,9 @@ export default function ViewMyBookings() {
 
   return (
     <div className="d-flex flex-wrap">
-      {/* map over tutors here using tutorcard component */}
+      {/* map over bookings here using bookingcard component */}
       {bookings.map((booking) => (
-        <BookingCard key={booking.firebaseKey} bookingObj={booking} />
+        <BookingCard key={booking.firebaseKey} bookingObj={booking} onUpdate={ViewMyBookings} />
       ))}
     </div>
   );

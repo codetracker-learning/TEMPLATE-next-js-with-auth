@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import AddBookingForm from '../../../components/AddBookingForm';
 import { getSingleTutor } from '../../../api/tutorData';
-import AddTutorForm from '../../../components/AddTutorForm';
 
-export default function EditTutor() {
+export default function AddBooking() {
   const [tutor, setTutor] = useState([]);
   const router = useRouter();
   const { firebaseKey } = router.query;
@@ -13,6 +13,6 @@ export default function EditTutor() {
   }, [firebaseKey]);
 
   return (
-    <AddTutorForm obj={tutor} />
+    <AddBookingForm tutorName={tutor.tutor_name} tutorRate={tutor.rate} />
   );
 }

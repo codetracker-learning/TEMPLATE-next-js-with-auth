@@ -16,7 +16,7 @@ import { updateBooking, createBooking } from '../api/tutorbookingdata';
 
 // };
 
-export default function AddBookingForm({ bookingObj }) {
+export default function AddBookingForm({ tutorName, bookingObj }) {
   const [formInput, setFormInput] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
@@ -34,7 +34,7 @@ export default function AddBookingForm({ bookingObj }) {
       createBooking(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateBooking(patchPayload).then(() => {
-          router.push('/bookings/new');
+          router.push('/bookings/mybookings');
         });
       });
     }
@@ -50,19 +50,19 @@ export default function AddBookingForm({ bookingObj }) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-green mt-5">{bookingObj?.firebaseKey ? 'Update' : 'Create'} Booking</h2>
+      <h2 className="text-green mt-5">{bookingObj?.firebaseKey ? 'Update' : 'Schedule'} Session with {tutorName}</h2>
 
       {/* TUTOR NAME INPUT  */}
-      <FloatingLabel controlId="floatingInput1" label="Tutor Name" className="mb-3">
+      {/* <FloatingLabel controlId="floatingInput1" label="Tutor Name" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Tutor Name"
           name="tutor_name"
-          value={formInput.tutor_name}
+          value={}
           onChange={handleChange}
           required
         />
-      </FloatingLabel>
+      </FloatingLabel> */}
 
       {/* STUDENT EMAIL INPUT  */}
       <FloatingLabel controlId="floatingInput2" label=" Student Email Address" className="mb-3">
@@ -76,10 +76,10 @@ export default function AddBookingForm({ bookingObj }) {
         />
       </FloatingLabel>
 
-      {/* DATE TIME INPUT  */}
+      {/* DATE TIME INPUT   */}
       <FloatingLabel controlId="floatingInput2" label="Select Date and Time" className="mb-3">
         <Form.Control
-          type="url"
+          type="text"
           placeholder="Select Date and Time"
           name="date and time"
           value={formInput.date_time}
@@ -116,4 +116,7 @@ AddBookingForm.propTypes = {
     student_email: PropTypes.string,
     subject: PropTypes.string,
   }).isRequired,
+  tutorName: PropTypes.string.isRequired,
+  // tutorRate: PropTypes.number.isRequired,
+
 };

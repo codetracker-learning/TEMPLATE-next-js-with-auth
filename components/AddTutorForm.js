@@ -22,12 +22,12 @@ export default function AddTutorForm({ obj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    if (obj.firebaseKey) setFormInput(obj);
+    if (obj?.firebaseKey) setFormInput(obj);
   }, [obj]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (obj.firebaseKey) {
+    if (obj?.firebaseKey) {
       updateTutor(formInput).then(() => router.push('/tutors/viewTutors'));
     } else {
       const payload = { ...formInput, uid: user.uid };
@@ -50,7 +50,7 @@ export default function AddTutorForm({ obj }) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-green mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Tutor</h2>
+      <h2 className="text-green mt-5">{obj?.firebaseKey ? 'Update' : 'Create'} Tutor</h2>
 
       {/* NAME INPUT  */}
       <FloatingLabel controlId="floatingInput1" label="Tutor Name" className="mb-3">
@@ -141,7 +141,7 @@ export default function AddTutorForm({ obj }) {
           required
         />
       </FloatingLabel>
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Tutor</Button>
+      <Button type="submit">{obj?.firebaseKey ? 'Update' : 'Create'} Tutor</Button>
     </Form>
 
   );

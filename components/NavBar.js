@@ -14,8 +14,8 @@ export default function NavBar() {
         <Nav className="me-auto">
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/tutors/viewTutors">View Tutors</Nav.Link>
-          <Nav.Link href="/tutors/mytutors">My Tutors</Nav.Link>
-          <Nav.Link href="/tutors/new">Manage Tutors</Nav.Link>
+          <Nav.Link href="/tutors/new">Create a Tutor</Nav.Link>
+          <Nav.Link href="/tutors/manageTutors">Manage Tutors</Nav.Link>
           <Nav.Link href="/bookings/mybookings">My Bookings</Nav.Link>
         </Nav>
       </Container>

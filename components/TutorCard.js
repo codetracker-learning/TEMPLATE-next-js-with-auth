@@ -16,6 +16,10 @@ export default function TutorCard({ tutorObj }) {
           <Link href={`/tutors/profile/${tutorObj.firebaseKey}`} passHref>
             <Button variant="info">View Profile</Button>
           </Link>
+          <Link href={`/bookings/new/${tutorObj.firebaseKey}`} passHref>
+            <Button variant="info" className="m-2">Book {tutorObj.tutor_name}</Button>
+          </Link>
+
         </Card.Body>
       </Card>
     </div>
