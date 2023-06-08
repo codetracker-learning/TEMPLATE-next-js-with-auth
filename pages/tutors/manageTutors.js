@@ -14,11 +14,15 @@ export default function ViewTutors() {
     getAllTutors().then(setTutors);
   }, [user]);
 
+  const refreshTutors = () => {
+    getAllTutors().then(setTutors);
+  };
+
   return (
     <div className="d-flex flex-wrap">
       {/* map over tutors here using tutorcard component */}
       {tutors.map((tutor) => (
-        <TutorCardEdit key={tutor?.firebaseKey} tutorObj={tutor} onUpdate={getAllTutors} />
+        <TutorCardEdit key={tutor?.firebaseKey} tutorObj={tutor} onUpdate={refreshTutors} />
       ))}
     </div>
   );

@@ -1,24 +1,25 @@
 import { useEffect, useState } from 'react';
 import BookingCard from '../../components/BookingCard';
 import { getAllBookings } from '../../api/tutorbookingdata';
-import { useAuth } from '../../utils/context/authContext';
+// import { useAuth } from '../../utils/context/authContext';
 
 export default function ViewMyBookings() {
   const [bookings, setbookings] = useState([]);
-  const { user } = useAuth();
-
-  // const seeTutorCards = () => {
-  // };
+  // const { user } = useAuth();
 
   useEffect(() => {
     getAllBookings().then(setbookings);
-  }, [user]);
+  }, []);
+
+  const refreshBooking = () => {
+    getAllBookings().then(setbookings);
+  };
 
   return (
     <div className="d-flex flex-wrap">
       {/* map over bookings here using bookingcard component */}
       {bookings.map((booking) => (
-        <BookingCard key={booking.firebaseKey} bookingObj={booking} onUpdate={ViewMyBookings} />
+        <BookingCard key={booking.firebaseKey} bookingObj={booking} onUpdate={refreshBooking} />
       ))}
     </div>
   );

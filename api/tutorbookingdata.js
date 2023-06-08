@@ -15,7 +15,7 @@ const getAllBookings = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// CREATE TUTOR
+// CREATE BOOKING
 const createBooking = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/bookings.json`, {
     method: 'POST',

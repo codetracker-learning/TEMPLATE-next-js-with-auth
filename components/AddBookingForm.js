@@ -65,24 +65,24 @@ export default function AddBookingForm({ tutorName, bookingObj }) {
       </FloatingLabel> */}
 
       {/* STUDENT EMAIL INPUT  */}
-      <FloatingLabel controlId="floatingInput2" label=" Student Email Address" className="mb-3">
+      <FloatingLabel controlId="floatingInput2" label="Requested Date" className="mb-3">
         <Form.Control
-          type="email"
-          placeholder="Email Address"
-          name="student_email"
-          value={formInput.student_email}
+          type="text"
+          placeholder="date"
+          name="date"
+          value={formInput.date}
           onChange={handleChange}
           required
         />
       </FloatingLabel>
 
       {/* DATE TIME INPUT   */}
-      <FloatingLabel controlId="floatingInput2" label="Select Date and Time" className="mb-3">
+      <FloatingLabel controlId="floatingInput2" label="Requested Time" className="mb-3">
         <Form.Control
           type="text"
-          placeholder="Select Date and Time"
-          name="date and time"
-          value={formInput.date_time}
+          placeholder="time"
+          name="time"
+          value={formInput.time}
           onChange={handleChange}
           required
         />
@@ -110,10 +110,10 @@ export default function AddBookingForm({ tutorName, bookingObj }) {
 
 AddBookingForm.propTypes = {
   bookingObj: PropTypes.shape({
-    tutor_name: PropTypes.string,
+    // tutor_name: PropTypes.string,
     firebaseKey: PropTypes.string,
     problem: PropTypes.string,
-    student_email: PropTypes.string,
+    // student_email: PropTypes.string,
     subject: PropTypes.string,
   }).isRequired,
   tutorName: PropTypes.string.isRequired,
