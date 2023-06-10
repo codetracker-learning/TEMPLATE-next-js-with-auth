@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import { useRouter } from 'next/router';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useAuth } from '../utils/context/authContext';
 import { updateBooking, createBooking } from '../api/tutorbookingdata';
@@ -17,7 +17,7 @@ import { updateBooking, createBooking } from '../api/tutorbookingdata';
 // };
 
 export default function AddBookingForm({
-  tutorName, bookingObj, tutorKey, tutorRate,
+  tutorName, bookingObj, tutorKey, tutorRate, subject,
 }) {
   const [formInput, setFormInput] = useState([]);
   const router = useRouter();
@@ -61,6 +61,18 @@ export default function AddBookingForm({
           placeholder="Tutor Name"
           name="tutor_name"
           value={tutorName}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
+      {/* TUTOR SUBJECT INPUT */}
+      <FloatingLabel controlId="floatingInput1" label="Subject" className="mb-3">
+        <Form.Control
+          type="text"
+          placeholder="subject"
+          name="subject"
+          value={subject}
           onChange={handleChange}
           required
         />
@@ -114,9 +126,9 @@ export default function AddBookingForm({
           required
         />
       </FloatingLabel>
-      <Link href="/bookings/mybookings" passHref>
-        <Button type="submit">{bookingObj?.firebaseKey ? 'Update' : 'Create'} Booking</Button>
-      </Link>
+      {/* <Link href="/bookings/mybookings" passHref> */}
+      <Button type="submit">{bookingObj?.firebaseKey ? 'Update' : 'Create'} Booking</Button>
+      {/* </Link> */}
     </Form>
 
   );
@@ -133,5 +145,6 @@ AddBookingForm.propTypes = {
   tutorName: PropTypes.string.isRequired,
   tutorKey: PropTypes.string.isRequired,
   tutorRate: PropTypes.number.isRequired,
+  subject: PropTypes.string.isRequired,
 
 };

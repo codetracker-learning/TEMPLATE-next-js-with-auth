@@ -14,7 +14,7 @@ function BookingCard({ bookingObj, onUpdate }) {
     getSingleTutor(bookingObj.tutorKey).then(setTutor);
   }, [bookingObj.tutorKey, setTutor]);
   const deleteThisBooking = () => {
-    if (window.confirm('Delete booking with $(bookingOjb.tutor_name)?')) {
+    if (window.confirm('Delete booking?')) {
       deleteBooking(bookingObj?.firebaseKey).then(() => onUpdate());
     }
   };
