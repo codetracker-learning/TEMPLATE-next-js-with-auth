@@ -3,37 +3,40 @@ import Form from 'react-bootstrap/Form';
 import { useRouter } from 'next/router';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
+// import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useAuth } from '../utils/context/authContext';
 import { updateBooking, createBooking } from '../api/tutorbookingdata';
 
-const initialState = {
-  tutor_name: 'Tutor Name',
-  student_email: 'Student Email',
-  date_time: '',
-  problem: '',
+// const initialState = {
+//   tutor_name: 'Tutor Name',
+//   student_email: 'Student Email',
+//   date_time: '',
+//   problem: '',
 
-};
+// };
 
-export default function AddBookingForm({ obj }) {
+export default function AddBookingForm({
+  tutorName, bookingObj, tutorKey, tutorRate, subject,
+}) {
   const [formInput, setFormInput] = useState([]);
   const router = useRouter();
-  const { user } = useAuth();
+  const user = useAuth();
 
   useEffect(() => {
-    if (obj.firebaseKey) setFormInput(obj);
-  }, [obj]);
+    if (bookingObj?.firebaseKey) setFormInput(bookingObj);
+  }, [bookingObj]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (obj.firebaseKey) {
-      updateBooking(formInput).then(() => router.push('/bookings/new'));
+    if (bookingObj?.firebaseKey) {
+      updateBooking(formInput).then(() => router.push('/bookings/mybookings'));
     } else {
-      const payload = { ...formInput, uid: user.uid };
+      const payload = { ...formInput, uid: user.uid, tutorKey };
       createBooking(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateBooking(patchPayload).then(() => {
-          router.push('/bookings/new');
+          router.push('/bookings/mybookings');
         });
       });
     }
@@ -49,39 +52,63 @@ export default function AddBookingForm({ obj }) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-green mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Tutor</h2>
+      <h2 className="text-green mt-5">{bookingObj?.firebaseKey ? 'Update' : 'Schedule'} Session with {tutorName}</h2>
 
-      {/* TUTOR NAME INPUT  */}
+      {/* TUTOR NAME INPUT */}
       <FloatingLabel controlId="floatingInput1" label="Tutor Name" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Tutor Name"
           name="tutor_name"
-          value={formInput.tutor_name}
+          value={tutorName}
           onChange={handleChange}
           required
         />
       </FloatingLabel>
 
-      {/* STUDENT EMAIL INPUT  */}
-      <FloatingLabel controlId="floatingInput2" label="Email Address" className="mb-3">
+      {/* TUTOR SUBJECT INPUT */}
+      <FloatingLabel controlId="floatingInput1" label="Subject" className="mb-3">
         <Form.Control
-          type="email"
-          placeholder="Email Address"
-          name="student_email"
-          value={formInput.student_email}
+          type="text"
+          placeholder="subject"
+          name="subject"
+          value={subject}
           onChange={handleChange}
           required
         />
       </FloatingLabel>
 
-      {/* DATE TIME INPUT  */}
-      <FloatingLabel controlId="floatingInput2" label="Select Date and Time" className="mb-3">
+      {/* TUTOR RATE */}
+      <FloatingLabel controlId="floatingInput1" label="Rate per Hour" className="mb-3">
         <Form.Control
-          type="url"
-          placeholder="Select Date and Time"
-          name="date and time"
-          value={formInput.date_time}
+          type="text"
+          placeholder="Rate"
+          name="tutor rate"
+          value={tutorRate}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
+      {/* REQUESTED DATE  */}
+      <FloatingLabel controlId="floatingInput2" label="Requested Date" className="mb-3">
+        <Form.Control
+          type="text"
+          placeholder="date"
+          name="date"
+          value={formInput.date}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
+      {/* REQUESTED TIME  */}
+      <FloatingLabel controlId="floatingInput2" label="Requested Time" className="mb-3">
+        <Form.Control
+          type="text"
+          placeholder="time"
+          name="time"
+          value={formInput.time}
           onChange={handleChange}
           required
         />
@@ -99,23 +126,25 @@ export default function AddBookingForm({ obj }) {
           required
         />
       </FloatingLabel>
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Booking</Button>
+      {/* <Link href="/bookings/mybookings" passHref> */}
+      <Button type="submit">{bookingObj?.firebaseKey ? 'Update' : 'Create'} Booking</Button>
+      {/* </Link> */}
     </Form>
 
   );
 }
 
 AddBookingForm.propTypes = {
-  obj: PropTypes.shape({
-    tutor_name: PropTypes.string,
+  bookingObj: PropTypes.shape({
+    // tutor_name: PropTypes.string,
     firebaseKey: PropTypes.string,
     problem: PropTypes.string,
-    student_email: PropTypes.string,
+    // student_email: PropTypes.string,
     subject: PropTypes.string,
+  }).isRequired,
+  tutorName: PropTypes.string.isRequired,
+  tutorKey: PropTypes.string.isRequired,
+  tutorRate: PropTypes.number.isRequired,
+  subject: PropTypes.string.isRequired,
 
-  }),
-};
-
-AddBookingForm.defaultProps = {
-  obj: initialState,
 };

@@ -4,12 +4,18 @@ import {
 } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { deleteBooking, getAllBookings } from '../api/tutorbookingdata';
+import { useEffect, useState } from 'react';
+import { deleteBooking } from '../api/tutorbookingdata';
+import { getSingleTutor } from '../api/tutorData';
 
 function BookingCard({ bookingObj, onUpdate }) {
+  const [tutor, setTutor] = useState(null);
+  useEffect(() => {
+    getSingleTutor(bookingObj.tutorKey).then(setTutor);
+  }, [bookingObj.tutorKey, setTutor]);
   const deleteThisBooking = () => {
-    if (window.confirm('Delete booking with $(bookingOjb.tutor_name)?')) {
-      deleteBooking(bookingObj.firebaseKey).then(() => onUpdate(getAllBookings));
+    if (window.confirm('Delete booking?')) {
+      deleteBooking(bookingObj?.firebaseKey).then(() => onUpdate());
     }
   };
 
@@ -21,13 +27,12 @@ function BookingCard({ bookingObj, onUpdate }) {
           <Container>
             <Row>
               <Col>
-                <Image src="https://media.istockphoto.com/id/1371301907/photo/friendly-young-man-wearing-denim-shirt.webp?b=1&s=170667a&w=0&k=20&c=uvclBOQrU3gd4_FMwzmTNK1PY4ydO_SlEgELJYj5mVI=" alt="tutor image" thumbnail />
+                <Image src={tutor?.image} alt="tutor image" thumbnail />
               </Col>
               <Col>
-                <h3>Date and Time</h3>
-                <p>You have an upcoming session with {bookingObj.tutor_name}. Please note that {bookingObj.tutor_name} requires 8hrs notice to cancel at no charge.</p>
-                <h5>${bookingObj.rate} for one hour.</h5>
-                <h5>{bookingObj.subject}</h5>
+                <h3>{bookingObj?.date} at {bookingObj?.time}</h3>
+                <p>You have an upcoming session with <strong>{tutor?.tutor_name}</strong>. Please note that <strong>{tutor?.tutor_name}</strong> requires 8hrs notice to cancel at no charge.</p>
+                <h5>${tutor?.rate} for one hour.</h5>
                 <Button variant="info" className="m-2" style={{ color: 'white' }}>Edit Booking</Button>
                 <Button variant="secondary" onClick={deleteThisBooking}>Cancel Booking</Button>
               </Col>
@@ -45,6 +50,10 @@ BookingCard.propTypes = {
     rate: PropTypes.number,
     subject: PropTypes.string,
     firebaseKey: PropTypes.string,
+    image: PropTypes.string,
+    tutorKey: PropTypes.string,
+    date: PropTypes.string,
+    time: PropTypes.number,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

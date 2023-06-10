@@ -2,8 +2,9 @@
 import React from 'react';
 // import Link from 'next/link';
 import {
-  Navbar, Container, Nav,
+  Navbar, Container, Nav, Button,
 } from 'react-bootstrap';
+import { signOut } from '../utils/auth';
 // import { signOut } from '../utils/auth';
 
 export default function NavBar() {
@@ -14,10 +15,14 @@ export default function NavBar() {
         <Nav className="me-auto">
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/tutors/viewTutors">View Tutors</Nav.Link>
-          <Nav.Link href="/tutors/mytutors">My Tutors</Nav.Link>
-          <Nav.Link href="/tutors/new">Manage Tutors</Nav.Link>
-          <Nav.Link href="/bookings/new">My Bookings</Nav.Link>
+          <Nav.Link href="/tutors/new">Create a Tutor</Nav.Link>
+          <Nav.Link href="/tutors/manageTutors">Manage Tutors</Nav.Link>
+          <Nav.Link href="/bookings/mybookings">My Bookings</Nav.Link>
         </Nav>
+        <Button variant="danger" type="button" size="lg" className="copy-btn" onClick={signOut}>
+          Sign Out
+        </Button>
+
       </Container>
     </Navbar>
   );

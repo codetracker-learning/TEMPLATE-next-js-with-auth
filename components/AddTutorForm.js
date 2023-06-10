@@ -15,19 +15,35 @@ const initialState = {
   subject: [],
   bio: '',
 };
-
+// const subjects = [
+//   'HTML',
+//   'CSS',
+//   'JAVASCRIPT',
+//   'JAVA',
+//   'REACT',
+//   'VUE',
+//   'ANGULAR',
+//   'C#',
+//   'C++',
+//   '.NET',
+//   'DOCKER',
+//   'KUBERNETES',
+//   'SQL',
+//   'DJANGO',
+// ];
 export default function AddTutorForm({ obj }) {
   const [formInput, setFormInput] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
+  // const [selectedSubjects, setSelectedSubjects] = useState([]);
 
   useEffect(() => {
-    if (obj.firebaseKey) setFormInput(obj);
+    if (obj?.firebaseKey) setFormInput(obj);
   }, [obj]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (obj.firebaseKey) {
+    if (obj?.firebaseKey) {
       updateTutor(formInput).then(() => router.push('/tutors/viewTutors'));
     } else {
       const payload = { ...formInput, uid: user.uid };
@@ -48,9 +64,14 @@ export default function AddTutorForm({ obj }) {
     }));
   };
 
+  // const handleSelectedSubject = (e) => {
+  //   const { name, value } = e.target;
+  //   const newSubjects = [...selectedSubjects, value];
+  //   setSelectedSubjects(newSubjects);
+  // };
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-green mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Tutor</h2>
+      <h2 className="text-green mt-5">{obj?.firebaseKey ? 'Update' : 'Create'} Tutor</h2>
 
       {/* NAME INPUT  */}
       <FloatingLabel controlId="floatingInput1" label="Tutor Name" className="mb-3">
@@ -76,7 +97,7 @@ export default function AddTutorForm({ obj }) {
         />
       </FloatingLabel>
 
-      {/* EMAIL INPUT  */}
+      {/* IMAGE INPUT  */}
       <FloatingLabel controlId="floatingInput2" label="Add Image" className="mb-3">
         <Form.Control
           type="url"
@@ -89,20 +110,19 @@ export default function AddTutorForm({ obj }) {
       </FloatingLabel>
 
       {/* SUBJECT SELECT  */}
-      <FloatingLabel controlId="floatingSelect" label="Subject">
-        <Form.Select
-          aria-label="Subject"
-          name="subject"
-          onChange={handleChange}
-          className="mb-3"
-          value={formInput.subject} // FIXME: modify code to remove error
-          required
-        >
-          <option value="">Select...</option>
+      <FloatingLabel controlId="floatingSelect" label="Select Subject">
+
+        <Form.Select aria-label="Floating label select example">
+          <option>Select Subject</option>
           <option value="HTML">HTML</option>
-          {/* <option value="Apartment">Apartment</option>
-          <option value="Condo">Condo</option>
-          <option value="Camper">Camper</option> */}
+          <option value="CSS">CSS</option>
+          <option value="JS">JAVASCRIPT</option>
+          <option value="REACT">REACT.JS</option>
+          <option value="VUE">VUE.JS</option>
+          <option value="C#">C#</option>
+          <option value="SQL">SQL</option>
+          <option value="DJANGO">DJANGO</option>
+          <option value="JAVA">JAVA</option>
         </Form.Select>
       </FloatingLabel>
 
@@ -135,13 +155,13 @@ export default function AddTutorForm({ obj }) {
           as="textarea"
           placeholder="Bio"
           style={{ height: '100px' }}
-          name="description"
+          name="bio"
           value={formInput.bio}
           onChange={handleChange}
           required
         />
       </FloatingLabel>
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Tutor</Button>
+      <Button type="submit">{obj?.firebaseKey ? 'Update' : 'Create'} Tutor</Button>
     </Form>
 
   );
