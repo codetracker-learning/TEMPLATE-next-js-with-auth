@@ -98,7 +98,7 @@ export default function AddTutorForm({ obj }) {
       </FloatingLabel>
 
       {/* IMAGE INPUT  */}
-      <FloatingLabel controlId="floatingInput2" label="Add Image" className="mb-3">
+      <FloatingLabel controlId="floatingSelect" label="Add Image" className="mb-3">
         <Form.Control
           type="url"
           placeholder="Add Image"
@@ -111,12 +111,15 @@ export default function AddTutorForm({ obj }) {
 
       {/* SUBJECT SELECT  */}
       <FloatingLabel controlId="floatingSelect" label="Select Subject">
-
-        <Form.Select aria-label="Floating label select example">
+        <Form.Select
+          name="subject"
+          onChange={handleChange}
+          value={formInput.subject}
+        >
           <option>Select Subject</option>
           <option value="HTML">HTML</option>
           <option value="CSS">CSS</option>
-          <option value="JS">JAVASCRIPT</option>
+          <option value="Javascript">JAVASCRIPT</option>
           <option value="REACT">REACT.JS</option>
           <option value="VUE">VUE.JS</option>
           <option value="C#">C#</option>
