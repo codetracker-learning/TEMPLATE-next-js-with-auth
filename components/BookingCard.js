@@ -30,7 +30,7 @@ function BookingCard({ bookingObj, onUpdate }) {
                 <Image src={tutor?.image} alt="tutor image" thumbnail />
               </Col>
               <Col>
-                <h3>Date and Time</h3>
+                <h3>{bookingObj?.date} at {bookingObj?.time}</h3>
                 <p>You have an upcoming session with <strong>{tutor?.tutor_name}</strong>. Please note that <strong>{tutor?.tutor_name}</strong> requires 8hrs notice to cancel at no charge.</p>
                 <h5>${tutor?.rate} for one hour.</h5>
                 <Button variant="info" className="m-2" style={{ color: 'white' }}>Edit Booking</Button>
@@ -52,6 +52,8 @@ BookingCard.propTypes = {
     firebaseKey: PropTypes.string,
     image: PropTypes.string,
     tutorKey: PropTypes.string,
+    date: PropTypes.string,
+    time: PropTypes.number,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

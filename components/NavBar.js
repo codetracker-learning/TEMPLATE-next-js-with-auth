@@ -2,8 +2,9 @@
 import React from 'react';
 // import Link from 'next/link';
 import {
-  Navbar, Container, Nav,
+  Navbar, Container, Nav, Button,
 } from 'react-bootstrap';
+import { signOut } from '../utils/auth';
 // import { signOut } from '../utils/auth';
 
 export default function NavBar() {
@@ -18,6 +19,10 @@ export default function NavBar() {
           <Nav.Link href="/tutors/manageTutors">Manage Tutors</Nav.Link>
           <Nav.Link href="/bookings/mybookings">My Bookings</Nav.Link>
         </Nav>
+        <Button variant="danger" type="button" size="lg" className="copy-btn" onClick={signOut}>
+          Sign Out
+        </Button>
+
       </Container>
     </Navbar>
   );

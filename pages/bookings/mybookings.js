@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import BookingCard from '../../components/BookingCard';
 import { getAllBookings } from '../../api/tutorbookingdata';
-// import { useAuth } from '../../utils/context/authContext';
+import { useAuth } from '../../utils/context/authContext';
 
 export default function ViewMyBookings() {
   const [bookings, setbookings] = useState([]);
-  // const { user } = useAuth();
+  const { user } = useAuth();
 
   useEffect(() => {
-    getAllBookings().then(setbookings);
-  }, []);
+    getAllBookings(user.uid).then(setbookings);
+  }, [user.uid]);
 
   const refreshBooking = () => {
     getAllBookings().then(setbookings);
