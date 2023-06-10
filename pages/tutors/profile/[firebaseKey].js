@@ -21,7 +21,7 @@ export default function ProfilePage() {
       <Row className="mt-5">
         <Col>
           <Image src={tutor.image} alt="tutor name" thumbnail />
-          <Link href="/bookings/new" passHref>
+          <Link href={`/bookings/new/${tutor.firebaseKey}`} passHref>
             <Button>Book {tutor.tutor_name}</Button>
           </Link>
         </Col>

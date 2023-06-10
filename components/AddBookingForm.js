@@ -17,7 +17,7 @@ import { updateBooking, createBooking } from '../api/tutorbookingdata';
 // };
 
 export default function AddBookingForm({
-  tutorName, bookingObj, tutorKey, tutorRate, subject,
+  tutorName, bookingObj, tutorKey, tutorRate, tutorSubject,
 }) {
   const [formInput, setFormInput] = useState([]);
   const router = useRouter();
@@ -72,7 +72,7 @@ export default function AddBookingForm({
           type="text"
           placeholder="subject"
           name="subject"
-          value={subject}
+          value={tutorSubject}
           onChange={handleChange}
           required
         />
@@ -145,6 +145,6 @@ AddBookingForm.propTypes = {
   tutorName: PropTypes.string.isRequired,
   tutorKey: PropTypes.string.isRequired,
   tutorRate: PropTypes.number.isRequired,
-  subject: PropTypes.string.isRequired,
+  tutorSubject: PropTypes.string.isRequired,
 
 };
