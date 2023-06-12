@@ -12,7 +12,7 @@ export default function TutorCard({ tutorObj }) {
         <Card.Body>
           <Card.Title>{tutorObj.tutor_name}</Card.Title>
           <p>{tutorObj?.bio}</p>
-          <p>{tutorObj?.subject}</p>
+          <h6>{tutorObj?.subject}</h6>
           <p>${tutorObj?.rate} per hour</p>
           <Link href={`/tutors/profile/${tutorObj.firebaseKey}`} passHref>
             <Button variant="info">View Profile</Button>

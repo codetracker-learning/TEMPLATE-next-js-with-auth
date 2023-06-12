@@ -4,19 +4,19 @@ import {
 } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { deleteBooking } from '../api/tutorbookingdata';
 import { getSingleTutor } from '../api/tutorData';
 
 function BookingCard({ bookingObj, onUpdate }) {
-  const [tutor, setTutor] = useState(null);
+  const [tutor, setTutor] = useState();
   useEffect(() => {
     getSingleTutor(bookingObj?.tutorKey).then(setTutor);
   }, [bookingObj?.tutorKey, setTutor]);
   const deleteThisBooking = () => {
     if (window.confirm('Delete booking?')) {
-      deleteBooking(bookingObj?.firebaseKey).then(() => onUpdate());
+      deleteBooking(bookingObj?.firebaseKey).then(() => onUpdate(setTutor));
     }
   };
 
@@ -34,9 +34,6 @@ function BookingCard({ bookingObj, onUpdate }) {
                 <h3>{bookingObj?.date} at {bookingObj?.time}</h3>
                 <p>You have an upcoming session with <strong>{tutor?.tutor_name}</strong>. Please note that <strong>{tutor?.tutor_name}</strong> requires 8hrs notice to cancel at no charge.</p>
                 <h5>${tutor?.rate} for one hour.</h5>
-                <Link href={`/bookings/edit/${bookingObj?.firebaseKey}`} passHref>
-                  <Button variant="info" className="m-2" style={{ color: 'white' }}>Edit Booking</Button>
-                </Link>
                 <Button variant="secondary" onClick={deleteThisBooking}>Cancel Booking</Button>
               </Col>
             </Row>

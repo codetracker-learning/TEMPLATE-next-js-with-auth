@@ -44,7 +44,7 @@ export default function AddTutorForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj?.firebaseKey) {
-      updateTutor(formInput).then(() => router.push('/tutors/viewTutors'));
+      updateTutor(formInput).then(() => router.push('/tutors/manageTutors'));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createTutor(payload).then(({ name }) => {
