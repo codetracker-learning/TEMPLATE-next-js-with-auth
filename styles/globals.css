@@ -21,12 +21,4 @@ a {
   background-color: #88effd;
 } */
 
-#splash {
-  background-image: url("../public/codingsplash.jpg");
-  width: 100vw;
-  height: 90vw;
-  top: 100;
-  left: 0;
-  background-size: contain;
-  max-height: 100vh;
-}
+

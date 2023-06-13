@@ -9,7 +9,7 @@ import { signOut } from '../utils/auth';
 
 export default function NavBar() {
   return (
-    <Navbar style={{ background: '#071fdb' }} variant="dark">
+    <Navbar style={{ background: 'navy', color: 'green' }} variant="dark">
       <Container>
         <Navbar.Brand href="/">theTechAcademy</Navbar.Brand>
         <Nav className="me-auto">
