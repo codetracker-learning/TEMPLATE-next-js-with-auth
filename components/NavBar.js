@@ -9,7 +9,7 @@ import { signOut } from '../utils/auth';
 
 export default function NavBar() {
   return (
-    <Navbar style={{ background: 'navy', color: 'green' }} variant="dark">
+    <Navbar style={{ background: 'white' }} variant="light">
       <Container>
         <Navbar.Brand href="/">theTechAcademy</Navbar.Brand>
         <Nav className="me-auto">
@@ -19,7 +19,7 @@ export default function NavBar() {
           <Nav.Link href="/tutors/manageTutors">Manage Tutors</Nav.Link>
           <Nav.Link href="/bookings/mybookings">My Bookings</Nav.Link>
         </Nav>
-        <Button variant="danger" type="button" size="lg" className="copy-btn" onClick={signOut}>
+        <Button variant="primary" type="button" size="md" className="copy-btn" onClick={signOut}>
           Sign Out
         </Button>
 

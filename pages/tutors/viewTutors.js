@@ -27,7 +27,7 @@ export default function ViewTutors() {
   }, [user]);
 
   return (
-    <Container>
+    <Container className="tutor-cards">
       <Row>
         <Col>
           <Form>

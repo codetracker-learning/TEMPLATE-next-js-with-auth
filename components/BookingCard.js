@@ -21,20 +21,22 @@ function BookingCard({ bookingObj, onUpdate }) {
   };
 
   return (
-    <Card className="mt-5">
+    <Card className="mt-5 booking-card-container">
       <Card.Header as="h5" style={{ background: '#7aeb87' }}>Scheduled Lesson</Card.Header>
       <Card.Body>
         <div>
           <Container>
             <Row>
-              <Col>
-                <Image src={tutor?.image} alt="tutor image" thumbnail />
+              <Col xs={3}>
+                <Image src={tutor?.image} alt="tutor image" thumbnail height="200px" width="200px" />
               </Col>
               <Col>
-                <h3>{bookingObj?.date} at {bookingObj?.time}</h3>
-                <p>You have an upcoming session with <strong>{tutor?.tutor_name}</strong>. Please note that <strong>{tutor?.tutor_name}</strong> requires 8hrs notice to cancel at no charge.</p>
-                <h5>${tutor?.rate} for one hour.</h5>
-                <Button variant="secondary" onClick={deleteThisBooking}>Cancel Booking</Button>
+                <div>
+                  <h5>{bookingObj?.date} at {bookingObj?.time}</h5>
+                  <p>You have an upcoming session with <strong>{tutor?.tutor_name}</strong>. Please note that <strong>{tutor?.tutor_name}</strong> requires 8hrs notice to cancel at no charge.</p>
+                  <h5>${tutor?.rate} for one hour.</h5>
+                  <Button variant="secondary" onClick={deleteThisBooking}>Cancel Booking</Button>
+                </div>
               </Col>
             </Row>
           </Container>
