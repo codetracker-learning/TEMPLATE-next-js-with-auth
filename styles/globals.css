@@ -17,7 +17,61 @@ a {
   box-sizing: border-box;
 }
 
-/* body {
-  background-color: #88effd;
-} */
+body {
+  background-color:  white;
+}
 
+#splash {
+  height: 500px;
+  background-size: cover;
+
+}
+
+.card-section {
+   background-color:  rgba(10, 200, 225, 0.429); 
+   margin-top:  -110px;
+   margin-left: 5px;
+   margin-right: 5px;
+   padding-left: 10%;
+   padding-right: 10%;
+   justify-content: center;
+}
+
+.horizontal-card {
+  width: 30%;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.description-clamp {
+  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    min-height: 100px;
+}
+
+.tutor-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.booking-card-container {
+  min-width: 100%;
+  
+}
+
+.splash-container {
+position: relative;
+}
+
+  .find-tutor {
+    position: absolute;
+    bottom: 20%;
+    display: inline-block;
+    width: 47rem;
+    left: 50%;
+    transform: translateX(-50%);
+}

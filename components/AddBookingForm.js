@@ -52,7 +52,7 @@ export default function AddBookingForm({
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-green mt-5">{bookingObj?.firebaseKey ? 'Update' : 'Schedule'} Session with {tutorName}</h2>
+      <h2 className="text-green mt-5">{bookingObj?.firebaseKey ? 'Update' : 'Schedule'} {tutorSubject} Session with {tutorName}</h2>
 
       {/* TUTOR NAME INPUT */}
       <FloatingLabel controlId="floatingInput1" label="Tutor Name" className="mb-3">
@@ -61,18 +61,6 @@ export default function AddBookingForm({
           placeholder="Tutor Name"
           name="tutor_name"
           value={tutorName}
-          onChange={handleChange}
-          required
-        />
-      </FloatingLabel>
-
-      {/* TUTOR SUBJECT INPUT */}
-      <FloatingLabel controlId="floatingInput1" label="Subject" className="mb-3">
-        <Form.Control
-          type="text"
-          placeholder="subject"
-          name="subject"
-          value={tutorSubject}
           onChange={handleChange}
           required
         />

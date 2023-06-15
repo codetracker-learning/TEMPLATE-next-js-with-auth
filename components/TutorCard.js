@@ -3,27 +3,27 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 export default function TutorCard({ tutorObj }) {
   return (
-    <div className="horizontal-card">
-      <Card style={{ width: '18rem' }}>
-        <Card.Img src={tutorObj.image} />
-        <Card.Body>
-          <Card.Title>{tutorObj.tutor_name}</Card.Title>
-          <p>{tutorObj?.bio}</p>
-          <p>{tutorObj?.subject}</p>
-          <p>${tutorObj?.rate} per hour</p>
-          <Link href={`/tutors/profile/${tutorObj.firebaseKey}`} passHref>
-            <Button variant="info">View Profile</Button>
-          </Link>
-          <Link href={`/bookings/new/${tutorObj.firebaseKey}`} passHref>
-            <Button variant="info" className="m-2">Book {tutorObj.tutor_name}</Button>
-          </Link>
+    <Card className="horizontal-card">
+      <Card.Img src={tutorObj.image} />
+      <Card.Body>
+        <Card.Title>{tutorObj.tutor_name}</Card.Title>
+        <p className="description-clamp">{tutorObj?.bio}</p>
+        <h6>{tutorObj?.subject}</h6>
+        <p>${tutorObj?.rate} per hour</p>
+        <Link href={`/tutors/profile/${tutorObj.firebaseKey}`} passHref>
+          <Button variant="info">View Profile</Button>
+        </Link>
+        <Link href={`/bookings/new/${tutorObj.firebaseKey}`} passHref>
+          <Button variant="info" className="m-2"><FontAwesomeIcon icon={faCalendar} style={{ color: 'white' }} /> Book {tutorObj.tutor_name}</Button>
+        </Link>
 
-        </Card.Body>
-      </Card>
-    </div>
+      </Card.Body>
+    </Card>
 
   );
 }
