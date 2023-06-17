@@ -22,7 +22,7 @@ function BookingCard({ bookingObj, onUpdate }) {
 
   return (
     <Card className="mt-5 booking-card-container">
-      <Card.Header as="h5" style={{ background: '#7aeb87' }}>Scheduled Lesson</Card.Header>
+      <Card.Header as="h5" style={{ background: '#86b7fe' }}>Scheduled Lesson</Card.Header>
       <Card.Body>
         <div>
           <Container>
@@ -36,6 +36,7 @@ function BookingCard({ bookingObj, onUpdate }) {
                   <p>You have an upcoming session with <strong>{tutor?.tutor_name}</strong>. Please note that <strong>{tutor?.tutor_name}</strong> requires 8hrs notice to cancel at no charge.</p>
                   <h5>${tutor?.rate} for one hour.</h5>
                   <Button variant="secondary" onClick={deleteThisBooking}>Cancel Booking</Button>
+                  <Button style={{ background: 'e3740d' }}>Join Session</Button>
                 </div>
               </Col>
             </Row>

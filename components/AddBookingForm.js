@@ -67,7 +67,7 @@ export default function AddBookingForm({
       </FloatingLabel>
 
       {/* TUTOR RATE */}
-      <FloatingLabel controlId="floatingInput1" label="Rate per Hour" className="mb-3">
+      <FloatingLabel controlId="floatingInput1" label="$ per Hour" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Rate"

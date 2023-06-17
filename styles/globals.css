@@ -18,7 +18,7 @@ a {
 }
 
 body {
-  background-color:  white;
+  background-color:  #ebeae8;
 }
 
 #splash {
@@ -27,9 +27,14 @@ body {
 
 }
 
+/* .splash-card {
+  display: flex;
+  justify-content: center;
+} */
+
+
 .card-section {
-   background-color:  rgba(10, 200, 225, 0.429); 
-   margin-top:  -110px;
+  background: linear-gradient(45deg, #959290, transparent);   margin-top:  -60px;
    margin-left: 5px;
    margin-right: 5px;
    padding-left: 10%;
@@ -42,14 +47,43 @@ body {
   margin-right: 15px;
   margin-left: 15px;
   margin-bottom: 10px;
+  align-items: center;
+  box-shadow: 0 0 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-body2 {
+  background-color: #e3e3e3;
+}
+
+.card-background {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(45deg, #959290, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-image {
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+  position: absolute;
+  top: 20%;
+}
+
+.tutorcard-name {
+  margin-top: 5%;
 }
 
 .description-clamp {
   overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    min-height: 100px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  min-height: 100px;
 }
 
 .tutor-cards {
@@ -67,11 +101,27 @@ body {
 position: relative;
 }
 
-  .find-tutor {
-    position: absolute;
-    bottom: 20%;
-    display: inline-block;
-    width: 47rem;
-    left: 50%;
-    transform: translateX(-50%);
+.find-tutor {
+  position: absolute;
+  bottom: 20%;
+  display: inline-block;
+  width: 47rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.profile-page {
+  position: relative;
+}
+
+.profile-image {
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px;
+}
+
+.profile-bookingbtn {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  
 }

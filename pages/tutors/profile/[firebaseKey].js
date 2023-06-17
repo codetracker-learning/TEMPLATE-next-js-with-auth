@@ -5,6 +5,8 @@ import { Image, Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitch, faFacebook, faDiscord } from '@fortawesome/free-solid-svg-icons';
 import { getSingleTutor } from '../../../api/tutorData';
 
 export default function ProfilePage() {
@@ -17,22 +19,28 @@ export default function ProfilePage() {
   }, [firebaseKey]);
 
   return (
-    <Container>
+    <Container className="profile-page">
       <Row className="mt-5">
         <Col>
-          <Image src={tutor.image} alt="tutor name" thumbnail />
+          <Image className="profile-image" src={tutor.image} alt="tutor name" />
           <Link href={`/bookings/new/${tutor.firebaseKey}`} passHref>
-            <Button>Book {tutor.tutor_name}</Button>
+            <Button className="profile-bookingbtn">Book {tutor.tutor_name}</Button>
           </Link>
         </Col>
         <Col>
-          <h2>{tutor.tutor_name}</h2>
-          <h5>Subjects: {tutor.subject}</h5>
+          <h2 style={{ color: '#e3740d' }}>{tutor.tutor_name}</h2>
+          <h5 style={{ color: '#e3740d' }}>Subjects: {tutor.subject}</h5>
           <hr />
           <p>{tutor.bio}</p>
           <hr />
           <p>Education: {tutor.education}</p>
-          <span style={{ color: 'green', fontWeight: 'bold' }}>Rate: ${tutor.rate} per hour</span>
+          <span style={{ color: '#e3740d', fontWeight: 'bold' }}>Rate: ${tutor.rate} per hour</span>
+          <h6 style={{ color: '#e3740d' }}>Join Me On: </h6>
+          <span className="fa-stack">
+            <FontAwesomeIcon icon={faFacebook} size="xl" style={{ color: '#ea7f06' }} />
+            <FontAwesomeIcon icon={faTwitch} size="xl" style={{ color: '#ea7406' }} />
+            <FontAwesomeIcon icon={faDiscord} size="xl" style={{ color: '#e0870b' }} />
+          </span>
         </Col>
       </Row>
     </Container>
