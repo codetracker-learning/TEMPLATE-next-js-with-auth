@@ -1,11 +1,22 @@
 @import 'bootstrap/dist/css/bootstrap.css';
 
+:root {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    max-width: 1440px;
+    min-width: 320px;
+    min-height: 100vh;
+    width: 100%;
+    background-color:  #ebeae8;
+
 }
 
 a {
@@ -15,22 +26,24 @@ a {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  background-color:  #ebeae8;
-}
 
 #splash {
   height: 500px;
   background-size: cover;
-
 }
 
-/* .splash-card {
-  display: flex;
-  justify-content: center;
-} */
+
+.splash-card {
+ transition: all .5s;
+}
+
+.splash-card:hover {
+  transform: translateY(-10px);
+}
 
 
 .card-section {
@@ -47,6 +60,7 @@ body {
   margin-right: 15px;
   margin-left: 15px;
   margin-bottom: 10px;
+  margin-top: 10px;
   align-items: center;
   box-shadow: 0 0 10px;
     border-radius: 10px;
@@ -55,6 +69,7 @@ body {
 
 .card-body2 {
   background-color: #e3e3e3;
+  margin-top: 2%;
 }
 
 .card-background {
@@ -97,8 +112,28 @@ body {
   
 }
 
+.booking-form {
+  color:#e3740d;
+   margin-top: 5%;
+}
+
 .splash-container {
 position: relative;
+}
+
+.splashcard-body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlay {
+  width: 100%;
+  background: linear-gradient(180deg, #e3740dde, transparent);
+  height: 500px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .find-tutor {
@@ -108,6 +143,21 @@ position: relative;
   width: 47rem;
   left: 50%;
   transform: translateX(-50%);
+  background-color: rgb(227, 116, 13);
+  width: 200px;
+  border-radius: 50rem;
+  transition: all .5s;
+
+}
+
+.find-tutor:hover {
+  color: #e3740d;
+  background-color: #e3e3e3;
+}
+
+.tutor-form {
+   color:#e3740d;
+   margin-top: 5%;
 }
 
 .profile-page {
@@ -123,5 +173,23 @@ position: relative;
   position: absolute;
   top: 100%;
   right: 0;
-  
+  background-color: rgb(227, 116, 13);
+  border-radius: 50px;
+  font-size: 1.5rem;
+
+}
+
+.booking-img {
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px;
+  height: auto;
+}
+
+.bookingcard-body {
+  background-color: '#e3e3e3';
+}
+
+
+.cancel-btn {
+  margin-right: 2%;
 }

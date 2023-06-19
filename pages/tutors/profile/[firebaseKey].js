@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitch, faFacebook, faDiscord } from '@fortawesome/free-solid-svg-icons';
+import { faBookOpen, faUserGraduate, faMoneyCheckDollar } from '@fortawesome/free-solid-svg-icons';
 import { getSingleTutor } from '../../../api/tutorData';
 
 export default function ProfilePage() {
@@ -31,16 +31,22 @@ export default function ProfilePage() {
           <h2 style={{ color: '#e3740d' }}>{tutor.tutor_name}</h2>
           <h5 style={{ color: '#e3740d' }}>Subjects: {tutor.subject}</h5>
           <hr />
-          <p>{tutor.bio}</p>
+          <FontAwesomeIcon icon={faBookOpen} size="xl" style={{ color: '#e67d05' }} />
+          <p style={{
+            color: '434649', fontSize: 'medium', fontWeight: '600', marginTop: '4px',
+          }}
+          >{tutor.bio}
+          </p>
           <hr />
-          <p>Education: {tutor.education}</p>
-          <span style={{ color: '#e3740d', fontWeight: 'bold' }}>Rate: ${tutor.rate} per hour</span>
-          <h6 style={{ color: '#e3740d' }}>Join Me On: </h6>
-          <span className="fa-stack">
-            <FontAwesomeIcon icon={faFacebook} size="xl" style={{ color: '#ea7f06' }} />
-            <FontAwesomeIcon icon={faTwitch} size="xl" style={{ color: '#ea7406' }} />
-            <FontAwesomeIcon icon={faDiscord} size="xl" style={{ color: '#e0870b' }} />
-          </span>
+          <FontAwesomeIcon icon={faUserGraduate} size="xl" style={{ color: '#e67d05' }} />
+          <p style={{
+            color: '434649', fontSize: 'medium', fontWeight: '600', marginTop: '4px',
+          }}
+          > {tutor.education}
+          </p>
+          <hr />
+          <FontAwesomeIcon icon={faMoneyCheckDollar} size="xl" style={{ color: '#e67d05' }} />
+          <p style={{ color: '#e3740d', fontWeight: 'bold', marginTop: '4px' }}>${tutor.rate} per hour</p>
         </Col>
       </Row>
     </Container>

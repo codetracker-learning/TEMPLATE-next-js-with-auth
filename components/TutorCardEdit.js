@@ -18,7 +18,7 @@ function TutorCardEdit({ tutorObj, onUpdate }) {
       <div className="card-background">
         <Card.Img className="inner-image" src={tutorObj.image} />
       </div>
-      <Card.Body>
+      <Card.Body className="card-body2">
         <Card.Title>{tutorObj.tutor_name}</Card.Title>
         <p className="description-clamp">{tutorObj.bio}</p>
         <p>${tutorObj.rate} per hour</p>
