@@ -14,17 +14,19 @@ function TutorCardEdit({ tutorObj, onUpdate }) {
 
   return (
 
-    <Card className="horizontal-card">
-      <Card.Img src={tutorObj.image} />
-      <Card.Body>
+    <Card style={{ width: '18rem' }} className="horizontal-card">
+      <div className="card-background">
+        <Card.Img className="inner-image" src={tutorObj.image} />
+      </div>
+      <Card.Body className="card-body2">
         <Card.Title>{tutorObj.tutor_name}</Card.Title>
         <p className="description-clamp">{tutorObj.bio}</p>
         <p>${tutorObj.rate} per hour</p>
         <Link href={`/tutors/edit/${tutorObj.firebaseKey}`} passHref>
-          <Button variant="info">Edit Tutor</Button>
+          <Button style={{ background: '#e3740d', color: 'white' }}>Edit Tutor</Button>
         </Link>
         <Link href="/tutors/manageTutors" passHref>
-          <Button variant="secondary" className="m-2" onClick={deleteThisTutor}>Delete Tutor</Button>
+          <Button style={{ background: '#e3740d', color: 'white' }} className="m-2" onClick={deleteThisTutor}>Delete Tutor</Button>
         </Link>
 
       </Card.Body>

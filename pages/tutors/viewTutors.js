@@ -32,7 +32,7 @@ export default function ViewTutors() {
         <Col>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Search Tutors by Subject</Form.Label>
+              <Form.Label style={{ color: '#c16b21' }}>Search Tutors by Subject</Form.Label>
               <Form.Control type="text" placeholder="ie Java..." value={searchText} onChange={handleChange} />
             </Form.Group>
           </Form>

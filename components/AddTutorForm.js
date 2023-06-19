@@ -71,7 +71,7 @@ export default function AddTutorForm({ obj }) {
   // };
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-green mt-5">{obj?.firebaseKey ? 'Update' : 'Create'} Tutor</h2>
+      <h2 className="tutor-form">{obj?.firebaseKey ? 'Update' : 'Create'} Tutor</h2>
 
       {/* NAME INPUT  */}
       <FloatingLabel controlId="floatingInput1" label="Tutor Name" className="mb-3">
@@ -164,7 +164,7 @@ export default function AddTutorForm({ obj }) {
           required
         />
       </FloatingLabel>
-      <Button type="submit">{obj?.firebaseKey ? 'Update' : 'Create'} Tutor</Button>
+      <Button style={{ background: '#e3740d' }} type="submit">{obj?.firebaseKey ? 'Update' : 'Create'} Tutor</Button>
     </Form>
 
   );

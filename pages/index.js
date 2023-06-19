@@ -3,51 +3,52 @@ import {
   Row, Image, Card, Col, Button,
 } from 'react-bootstrap';
 // import { useAuth } from '../utils/context/authContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDollarSign, faVideo, faChalkboardUser } from '@fortawesome/free-solid-svg-icons';
 
 function Home() {
   // const { user } = useAuth();
 
   return (
-    <div>
+    <div className="splash-cards">
 
       <Row className="splash-container">
+        <div className="overlay" />
         <Image src="https://media.licdn.com/dms/image/C4D12AQE5pnbLO0rUwQ/article-cover_image-shrink_600_2000/0/1609166555740?e=2147483647&v=beta&t=LCQ8iCfb3k00GzGL7Of5yASwDTUIKusftOBSaKowj2M" id="splash" fluid />
         <Link passHref href="/tutors/viewTutors">
-          <Button variant="light" className="find-tutor">Find A Tutor</Button>
+          <Button className="find-tutor">Find A Tutor</Button>
         </Link>
       </Row>
       <Row className="card-section">
         <Col>
-          <Card className="w3-card-4 mt-5 mb-5">
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+          <Card className="splash-card">
+            <Card.Body className="splashcard-body">
+              <FontAwesomeIcon icon={faChalkboardUser} size="2xl" style={{ color: '#e3704d' }} />              <Card.Title>Live Virtual Sessions</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the cards content.
+                Get help from experts in the comfort of your own home.
               </Card.Text>
             </Card.Body>
           </Card>
 
         </Col>
         <Col>
-          <Card className="w3-card-4 mt-5 mb-5">
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+          <Card className="splash-card">
+            <Card.Body className="splashcard-body">
+              <FontAwesomeIcon icon={faDollarSign} size="2xl" style={{ color: '#e3740d' }} />
+              <Card.Title>Upfront Pricing</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the cards content.
+                Clear and upfront pricing. Easily find a tutor to fit your budget.
               </Card.Text>
             </Card.Body>
           </Card>
-
         </Col>
         <Col>
-          <Card className="w3-card-4 mt-5 mb-5">
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+          <Card className="splash-card">
+            <Card.Body className="splashcard-body">
+              <FontAwesomeIcon icon={faVideo} size="2xl" style={{ color: '#e3740d' }} />
+              <Card.Title>Recorded Sessions</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the cards content.
+                Access to recording of your tutoring session in your student dashboard.
               </Card.Text>
             </Card.Body>
           </Card>

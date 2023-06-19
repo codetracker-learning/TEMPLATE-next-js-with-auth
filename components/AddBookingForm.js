@@ -52,7 +52,7 @@ export default function AddBookingForm({
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-green mt-5">{bookingObj?.firebaseKey ? 'Update' : 'Schedule'} {tutorSubject} Session with {tutorName}</h2>
+      <h2 className="booking-form">{bookingObj?.firebaseKey ? 'Update' : 'Schedule'} {tutorSubject} Session with {tutorName}</h2>
 
       {/* TUTOR NAME INPUT */}
       <FloatingLabel controlId="floatingInput1" label="Tutor Name" className="mb-3">
@@ -67,7 +67,7 @@ export default function AddBookingForm({
       </FloatingLabel>
 
       {/* TUTOR RATE */}
-      <FloatingLabel controlId="floatingInput1" label="Rate per Hour" className="mb-3">
+      <FloatingLabel controlId="floatingInput1" label="Rate per Hour (US dollars)" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Rate"
@@ -79,7 +79,7 @@ export default function AddBookingForm({
       </FloatingLabel>
 
       {/* REQUESTED DATE  */}
-      <FloatingLabel controlId="floatingInput2" label="Requested Date" className="mb-3">
+      <FloatingLabel controlId="floatingInput2" label="Requested Date mm/dd/yyyy" className="mb-3">
         <Form.Control
           type="text"
           placeholder="date"
@@ -115,7 +115,7 @@ export default function AddBookingForm({
         />
       </FloatingLabel>
       {/* <Link href="/bookings/mybookings" passHref> */}
-      <Button type="submit">{bookingObj?.firebaseKey ? 'Update' : 'Create'} Booking</Button>
+      <Button style={{ background: '#e3740d' }} type="submit">{bookingObj?.firebaseKey ? 'Update' : 'Create'} Booking</Button>
       {/* </Link> */}
     </Form>
 
