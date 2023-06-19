@@ -126,6 +126,10 @@ export default function AddTutorForm({ obj }) {
           <option value="SQL">SQL</option>
           <option value="DJANGO">DJANGO</option>
           <option value="JAVA">JAVA</option>
+          <option value="PYTHON">PYTHON</option>
+          <option value="PHP">PHP</option>
+          <option value="SWIFT">SWIFT</option>
+
         </Form.Select>
       </FloatingLabel>
 
