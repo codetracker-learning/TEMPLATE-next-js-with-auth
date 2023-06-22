@@ -33,8 +33,12 @@ function BookingCard({ bookingObj, onUpdate }) {
               <Col>
                 <div>
                   <h5>{bookingObj?.date} at {bookingObj?.time}</h5>
-                  <p>You have an upcoming session with <strong>{tutor?.tutor_name}</strong>. Please note that <strong>{tutor?.tutor_name}</strong> requires 8hrs notice to cancel at no charge.</p>
-                  <h5>${tutor?.rate} for one hour.</h5>
+                  <p style={{
+                    color: '434649', fontSize: 'medium', fontWeight: '600',
+                  }}
+                  >You have an upcoming session with <strong>{tutor?.tutor_name}</strong> for help with <strong>{tutor?.subject}</strong>. Please note that your tutor requires 8hrs notice to cancel at no charge.
+                  </p>
+                  <h5>Total: ${tutor?.rate}</h5>
                   <Button className="cancel-btn" variant="secondary" onClick={deleteThisBooking}>Cancel Booking</Button>
                   <Button style={{ background: '#e3740d', color: 'white' }}>Join Session</Button>
                 </div>
