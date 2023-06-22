@@ -24,7 +24,6 @@ export default function TutorCard({ tutorObj }) {
           <Link href={`/bookings/new/${tutorObj.firebaseKey}`} passHref>
             <Button style={{ background: '#e3740d', color: 'white' }} className="m-2"><FontAwesomeIcon icon={faCalendar} style={{ color: 'white' }} /> Book</Button>
           </Link>
-
         </Card.Body>
       </Card>
     </Link>

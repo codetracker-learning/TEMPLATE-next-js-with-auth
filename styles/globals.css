@@ -15,7 +15,7 @@ body {
     min-width: 320px;
     min-height: 100vh;
     width: 100%;
-    background-color:  #ebeae8;
+    background-color:  #f8f9fa;
 
 }
 
@@ -63,13 +63,12 @@ a {
   margin-top: 10px;
   align-items: center;
   box-shadow: 0 0 10px;
-    border-radius: 10px;
-    overflow: hidden;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .card-body2 {
   background-color: #e3e3e3;
-  margin-top: 2%;
 }
 
 .card-background {
@@ -108,6 +107,30 @@ a {
   cursor: pointer;
 }
 
+.addtutor-form {
+box-shadow: 0 0 10px;
+}
+
+.form-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 5px;
+  margin-bottom: 10%;
+}
+
+.addtutorform-card {
+  width: 90%;
+  margin-left: 10px;
+  border-radius: 30px;
+  background-color: #fbf8f6;
+  box-shadow: 0 0 5px;
+}
+
+.managetutor-cards {
+  display: flex;
+  flex-wrap: wrap ;
+}
+
 .booking-card-container {
   min-width: 100%;
   
@@ -116,6 +139,12 @@ a {
 .booking-form {
   color:#e3740d;
    margin-top: 5%;
+}
+
+.bookingform-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 5px;
 }
 
 .splash-container {
