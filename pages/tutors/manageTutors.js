@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
 import Link from 'next/link';
+import { Button } from 'react-bootstrap';
 import { getAllTutors } from '../../api/tutorData';
 import { useAuth } from '../../utils/context/authContext';
 import TutorCardEdit from '../../components/TutorCardEdit';
@@ -21,17 +21,19 @@ export default function ViewTutors() {
   };
 
   return (
-
-    <div className="managetutor-cards">
-      <div>
+    <>
+      <div className="createtutor-btn">
         <Link href="/tutors/new" passHref>
           <Button style={{ background: '#e3740d', borderRadius: '20px' }}>Create a Tutor</Button>
         </Link>
       </div>
-      {/* map over tutors here using tutorcard component */}
-      {tutors.map((tutor) => (
-        <TutorCardEdit key={tutor?.firebaseKey} tutorObj={tutor} onUpdate={refreshTutors} />
-      ))}
-    </div>
+
+      <div className="managetutor-cards">
+        {/* map over tutors here using tutorcard component */}
+        {tutors.map((tutor) => (
+          <TutorCardEdit key={tutor?.firebaseKey} tutorObj={tutor} onUpdate={refreshTutors} />
+        ))}
+      </div>
+    </>
   );
 }

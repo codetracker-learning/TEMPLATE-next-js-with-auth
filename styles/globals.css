@@ -15,8 +15,7 @@ body {
     min-width: 320px;
     min-height: 100vh;
     width: 100%;
-    background-color:  #f8f9fa;
-
+    background-color: #e9eef3;
 }
 
 a {
@@ -34,6 +33,10 @@ a {
 #splash {
   height: 500px;
   background-size: cover;
+}
+
+.splash-cards {
+  overflow: hidden;
 }
 
 
@@ -69,6 +72,7 @@ a {
 
 .card-body2 {
   background-color: #e3e3e3;
+  width: 100%;
 }
 
 .card-background {
@@ -86,7 +90,9 @@ a {
   height: 125px;
   position: absolute;
   top: 20%;
+  border: 3px solid #c9c0c0;
 }
+
 
 .tutorcard-name {
   margin-top: 5%;
@@ -109,6 +115,14 @@ a {
 
 .addtutor-form {
 box-shadow: 0 0 10px;
+margin-top: 5%;
+}
+
+.createtutor-btn {
+  margin-top: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-container {
@@ -129,6 +143,7 @@ box-shadow: 0 0 10px;
 .managetutor-cards {
   display: flex;
   flex-wrap: wrap ;
+  margin-top: 5%;
 }
 
 .booking-card-container {
@@ -139,6 +154,7 @@ box-shadow: 0 0 10px;
 .booking-form {
   color:#e3740d;
    margin-top: 5%;
+   padding: 2% 0 2% 0;
 }
 
 .bookingform-container {
@@ -188,6 +204,8 @@ position: relative;
 .tutor-form {
    color:#e3740d;
    margin-top: 5%;
+   padding: 2% 0 2% 0;
+
 }
 
 .profile-page {
@@ -222,4 +240,44 @@ position: relative;
 
 .cancel-btn {
   margin-right: 2%;
+}
+
+.infopage-row {
+  gap: 2%;
+}
+
+.infopagecol {
+  color:#e3740d;
+  border-radius: 50%;
+  border: 3px solid;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+
+.infopage-numbercol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 10px;
+  background-color: white;
+  border-radius: 5px;
+  padding-top: 1%;
+}
+
+.infopageh1 {
+  color:#e3740d;
+  margin: 3% 0;
+  text-align: center;
+}
+
+.info-video {
+  height: 500px;
+}
+
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 500px;
+  object-position: top;
 }

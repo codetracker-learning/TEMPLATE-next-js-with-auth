@@ -36,7 +36,6 @@ export default function AddTutorForm({ obj }) {
   const [formInput, setFormInput] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
-  // const [selectedSubjects, setSelectedSubjects] = useState([]);
 
   useEffect(() => {
     if (obj?.firebaseKey) setFormInput(obj);
