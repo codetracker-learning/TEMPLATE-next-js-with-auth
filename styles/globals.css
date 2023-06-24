@@ -263,6 +263,11 @@ position: relative;
   background-color: white;
   border-radius: 5px;
   padding-top: 1%;
+  transition: all .5s
+}
+
+.infopage-numbercol:hover {
+  transform: translateY(-10px);
 }
 
 .infopageh1 {
