@@ -29,7 +29,10 @@ export default function ProfilePage() {
         </Col>
         <Col>
           <h2 style={{ color: '#e3740d' }}>{tutor.tutor_name}</h2>
-          <h5 style={{ color: '#e3740d' }}>Subjects: {tutor.subject}</h5>
+          <h6>Subjects: {tutor?.subject?.map((sub) => (
+            <span style={{ color: '#e3740d' }}>{sub} </span>
+          ))}
+          </h6>
           <hr />
           <FontAwesomeIcon icon={faBookOpen} size="xl" style={{ color: '#e67d05' }} />
           <p style={{

@@ -16,24 +16,9 @@ const initialState = {
   subject: [],
   bio: '',
 };
-// const subjects = [
-//   'HTML',
-//   'CSS',
-//   'JAVASCRIPT',
-//   'JAVA',
-//   'REACT',
-//   'VUE',
-//   'ANGULAR',
-//   'C#',
-//   'C++',
-//   '.NET',
-//   'DOCKER',
-//   'KUBERNETES',
-//   'SQL',
-//   'DJANGO',
-// ];
 export default function AddTutorForm({ obj }) {
   const [formInput, setFormInput] = useState([]);
+  const [subject, setSubject] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
 
@@ -43,10 +28,14 @@ export default function AddTutorForm({ obj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const result = {
+      ...formInput,
+      subject,
+    };
     if (obj?.firebaseKey) {
-      updateTutor(formInput).then(() => router.push('/tutors/manageTutors'));
+      updateTutor(result).then(() => router.push('/tutors/manageTutors'));
     } else {
-      const payload = { ...formInput, uid: user.uid };
+      const payload = { ...result, uid: user.uid };
       createTutor(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateTutor(patchPayload).then(() => {
@@ -64,11 +53,10 @@ export default function AddTutorForm({ obj }) {
     }));
   };
 
-  // const handleSelectedSubject = (e) => {
-  //   const { name, value } = e.target;
-  //   const newSubjects = [...selectedSubjects, value];
-  //   setSelectedSubjects(newSubjects);
-  // };
+  const handleRemove = (item) => {
+    setSubject((previousData) => previousData.filter((el) => el !== item));
+  };
+
   return (
     <Container className="form-container">
       <Form onSubmit={handleSubmit}>
@@ -102,8 +90,7 @@ export default function AddTutorForm({ obj }) {
         <FloatingLabel controlId="floatingSelect" label="Subject" className="mb-3">
           <Form.Select
             name="subject"
-            onChange={handleChange}
-            value={formInput.subject}
+            onChange={(currentItem) => setSubject((previousItems) => [...previousItems, currentItem.target.value])}
           >
             <option>Select</option>
             <option value="HTML">HTML</option>
@@ -120,6 +107,12 @@ export default function AddTutorForm({ obj }) {
             <option value="SWIFT">SWIFT</option>
 
           </Form.Select>
+          <ul className="subject-list">
+            {subject?.map((sub) => (
+              // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+              <li>{sub} <span onClick={() => handleRemove(sub)}>x</span></li>
+            ))}
+          </ul>
         </FloatingLabel>
 
         {/* RATE INPUT  */}

@@ -15,7 +15,7 @@ export default function ViewTutors() {
   const handleChange = (e) => {
     const input = e.target.value;
     setSearchText(input);
-    const filtered = tutors.filter((tutor) => (input === '' ? true : tutor.subject.toLowerCase().startsWith(input.toLowerCase())));
+    const filtered = tutors.filter((tutor) => tutor.subject.some((sub) => (sub.toLowerCase().includes(input.toLowerCase()))));
     setFilteredTutors(filtered);
   };
 

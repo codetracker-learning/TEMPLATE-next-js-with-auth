@@ -21,6 +21,10 @@ function TutorCardEdit({ tutorObj, onUpdate }) {
       <Card.Body className="card-body2">
         <Card.Title>{tutorObj.tutor_name}</Card.Title>
         <p className="description-clamp">{tutorObj.bio}</p>
+        {tutorObj?.subject.map((sub) => (
+          <span>{sub} </span>
+        ))}
+
         <p>${tutorObj.rate} per hour</p>
         <Link href={`/tutors/edit/${tutorObj.firebaseKey}`} passHref>
           <Button style={{ background: '#e3740d', color: 'white' }}>Edit Tutor</Button>
