@@ -4,7 +4,6 @@ import {
 } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-// import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { deleteBooking } from '../api/tutorbookingdata';
 import { getSingleTutor } from '../api/tutorData';
@@ -36,7 +35,7 @@ function BookingCard({ bookingObj, onUpdate }) {
                   <p style={{
                     color: '434649', fontSize: 'medium', fontWeight: '600',
                   }}
-                  >You have an upcoming session with <strong>{tutor?.tutor_name}</strong> for help with <strong>{tutor?.subject}</strong>. Please note that your tutor requires 8hrs notice to cancel at no charge.
+                  >You have an upcoming lesson with <strong>{tutor?.tutor_name}</strong>. Please note that your tutor requires 8hrs notice to cancel at no charge.
                   </p>
                   <h5>Total: ${tutor?.rate}</h5>
                   <Button className="cancel-btn" variant="secondary" onClick={deleteThisBooking}>Cancel Booking</Button>

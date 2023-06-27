@@ -208,6 +208,13 @@ position: relative;
 
 }
 
+.subject-list {
+  list-style: none;
+  padding: 10px 0;
+}
+
+.subject-list li{display: inline-block; margin-right: 5px; border: 1px solid; padding: 5px;}
+
 .profile-page {
   position: relative;
 }
@@ -263,7 +270,7 @@ position: relative;
   background-color: white;
   border-radius: 5px;
   padding-top: 1%;
-  transition: all .5s
+  transition: all .5s;
 }
 
 .infopage-numbercol:hover {
