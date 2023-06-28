@@ -21,7 +21,7 @@ function TutorCardEdit({ tutorObj, onUpdate }) {
       <Card.Body className="card-body2">
         <Card.Title>{tutorObj.tutor_name}</Card.Title>
         <p className="description-clamp">{tutorObj.bio}</p>
-        {tutorObj?.subject.map((sub) => (
+        {tutorObj?.subject?.map((sub) => (
           <span>{sub} </span>
         ))}
 

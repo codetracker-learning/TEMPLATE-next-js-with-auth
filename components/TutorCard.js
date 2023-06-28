@@ -16,7 +16,7 @@ export default function TutorCard({ tutorObj }) {
         <Card.Body className="card-body2">
           <Card.Title className="tutorcard-name">{tutorObj.tutor_name}</Card.Title>
           <p className="description-clamp">{tutorObj?.bio}</p>
-          {tutorObj?.subject.map((sub) => (
+          {tutorObj?.subject?.map((sub) => (
             <span>{sub} </span>
           ))}
           <p>${tutorObj?.rate} per hour</p>
