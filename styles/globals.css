@@ -1,11 +1,21 @@
 @import 'bootstrap/dist/css/bootstrap.css';
 
+:root {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    max-width: 1440px;
+    min-width: 320px;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #e9eef3;
 }
 
 a {
@@ -15,8 +25,271 @@ a {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body {
-  background-color: #88effd;
+
+#splash {
+  height: 500px;
+  background-size: cover;
+}
+
+.splash-cards {
+  overflow: hidden;
+}
+
+
+.splash-card {
+ transition: all .5s;
+}
+
+.splash-card:hover {
+  transform: translateY(-10px);
+}
+
+
+.card-section {
+  background: linear-gradient(45deg, #959290, transparent);   margin-top:  -60px;
+   margin-left: 5px;
+   margin-right: 5px;
+   padding-left: 10%;
+   padding-right: 10%;
+   justify-content: center;
+}
+
+.horizontal-card {
+  width: 30%;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  align-items: center;
+  box-shadow: 0 0 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-body2 {
+  background-color: #e3e3e3;
+  width: 100%;
+}
+
+.card-background {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(45deg, #959290, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-image {
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+  position: absolute;
+  top: 20%;
+  border: 3px solid #c9c0c0;
+}
+
+
+.tutorcard-name {
+  margin-top: 5%;
+}
+
+.description-clamp {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  min-height: 100px;
+}
+
+.tutor-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.addtutor-form {
+box-shadow: 0 0 10px;
+margin-top: 5%;
+}
+
+.createtutor-btn {
+  margin-top: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 5px;
+  margin-bottom: 10%;
+}
+
+.addtutorform-card {
+  width: 90%;
+  margin-left: 10px;
+  border-radius: 30px;
+  background-color: #fbf8f6;
+  box-shadow: 0 0 5px;
+}
+
+.managetutor-cards {
+  display: flex;
+  flex-wrap: wrap ;
+  margin-top: 5%;
+}
+
+.booking-card-container {
+  min-width: 100%;
+  
+}
+
+.booking-form {
+  color:#e3740d;
+   margin-top: 5%;
+   padding: 2% 0 2% 0;
+}
+
+.bookingform-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 5px;
+}
+
+.splash-container {
+position: relative;
+}
+
+.splashcard-body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlay {
+  width: 100%;
+  background: linear-gradient(180deg, #e3740dde, transparent);
+  height: 500px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.find-tutor {
+  position: absolute;
+  bottom: 20%;
+  display: inline-block;
+  width: 47rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(227, 116, 13);
+  width: 200px;
+  border-radius: 50rem;
+  transition: all .5s;
+
+}
+
+.find-tutor:hover {
+  color: #e3740d;
+  background-color: #e3e3e3;
+}
+
+.tutor-form {
+   color:#e3740d;
+   margin-top: 5%;
+   padding: 2% 0 2% 0;
+
+}
+
+.subject-list {
+  list-style: none;
+  padding: 10px 0;
+}
+
+.subject-list li{display: inline-block; margin-right: 5px; border: 1px solid; padding: 5px;}
+
+.profile-page {
+  position: relative;
+}
+
+.profile-image {
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px;
+}
+
+.profile-bookingbtn {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: rgb(227, 116, 13);
+  border-radius: 50px;
+  font-size: 1.5rem;
+
+}
+
+.booking-img {
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px;
+  height: auto;
+}
+
+.bookingcard-body {
+  background-color: '#e3e3e3';
+}
+
+
+.cancel-btn {
+  margin-right: 2%;
+}
+
+.infopage-row {
+  gap: 2%;
+}
+
+.infopagecol {
+  color:#e3740d;
+  border-radius: 50%;
+  border: 3px solid;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+
+.infopage-numbercol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 10px;
+  background-color: white;
+  border-radius: 5px;
+  padding-top: 1%;
+  transition: all .5s;
+}
+
+.infopage-numbercol:hover {
+  transform: translateY(-10px);
+}
+
+.infopageh1 {
+  color:#e3740d;
+  margin: 3% 0;
+  text-align: center;
+}
+
+.info-video {
+  height: 500px;
+}
+
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 500px;
+  object-position: top;
 }
